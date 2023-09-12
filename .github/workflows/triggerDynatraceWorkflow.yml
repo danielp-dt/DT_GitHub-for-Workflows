@@ -4,7 +4,12 @@ name: "trigger-dynatrace-workflow"
 
 # Controls when the workflow will run
 on:
-  workflow_dispatch:   
+  workflow_dispatch:
+    inputs:
+      send_slack_message:
+        description: Parameter used to decide if a slack message should be sent
+        type: boolean
+        required: true
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -15,6 +20,7 @@ jobs:
     name: Test custom action
     steps: 
       - name: Trigger Workflow
+        if: inputs.send_slack_message == true
         id: triggerDtWorkflow
         uses: danielp-dt/trigger-Dynatrace-workflows-action@v1.0.0
         with: 
