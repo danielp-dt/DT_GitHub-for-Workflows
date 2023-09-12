@@ -32,7 +32,7 @@ jobs:
           payload: |
             {
               "input": {
-                "slack_message": "hello world via github actions",
+                "slack_message": "hello world via github actions"
               },
               "params": {},
               "uniqueQualifier": ""
