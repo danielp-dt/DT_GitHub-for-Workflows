@@ -6,8 +6,8 @@ name: "trigger-dynatrace-workflow"
 on:
   workflow_dispatch:
     inputs:
-      send_slack_message:
-        description: Parameter used to decide if a slack message should be sent
+      trigger_dynatrace_workflow:
+        description: Parameter used to decide if the Dynatrace workflow should be triggered
         type: boolean
         required: true
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -20,7 +20,7 @@ jobs:
     name: Test custom action
     steps: 
       - name: Trigger Workflow
-        if: inputs.send_slack_message == true
+        if: inputs.trigger_dynatrace_workflow == true
         id: triggerDtWorkflow
         uses: danielp-dt/trigger-Dynatrace-workflows-action@v1.0.0
         with: 
@@ -32,7 +32,8 @@ jobs:
           payload: |
             {
               "input": {
-                "test_msg": "hello world via github"
+                "slack_message": "hello world via github",
+                "new_issue_title": "some problem from github actions"
               },
               "params": {},
               "uniqueQualifier": ""
