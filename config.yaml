@@ -1,11 +1,1 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: pv0004
-spec:
-  storageClassName: manual
-  accessModes:
-   - ReadWriteOnce
-  resources:
-   requests:
-    storage: 3Gi
+bd00abac-4841-47dd-98fa-3b5396808720
