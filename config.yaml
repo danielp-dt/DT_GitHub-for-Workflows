@@ -1,7 +1,7 @@
 apiVersion: v2
 kind: PersistentVolumeClaim
 metadata:
-  name: branch-version
+  name: feature-branch-version
 spec:
   storageClassName: manual
   accessModes:
